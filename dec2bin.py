@@ -1,5 +1,4 @@
-Python 3.10.11 (tags/v3.10.11:7d4cc5a, Apr  5 2023, 00:38:17) [MSC v.1929 64 bit (AMD64)] on win32
-Type "help", "copyright", "credits" or "license()" for more information.
+
 >>> # ------------------------------------------------------
 ... # Convierte un número decimal positivo a binario usando un 
 ... #   determinado número de bits.
@@ -9,10 +8,15 @@ Type "help", "copyright", "credits" or "license()" for more information.
 ... # ------------------------------------------------------
 ... def dec2bin(numero_decimal, numero_bits):
 ...     numero_binario = bin(numero_decimal)
+        if numero_binario >= 0:
 ...     numero_binario = numero_binario[2:len(numero_binario)]  # quita el "0b" del principio
 ...     
 ...     while len(numero_binario) < numero_bits:      # añade 0's a la izquierda si hace falta
 ...         numero_binario = "0" + numero_binario
+        else:
+        numero_binario = numero_binario[3:len(numero_binario)] # quita el "-0b" del principio
+        while len(numero_binario) < numero_bits: # añade 1's a la izquierda si hace falta
+            numero_binario = "1" + numero_binario
 ...     return numero_binario
 ... 
 ... # ----------------------------------------
